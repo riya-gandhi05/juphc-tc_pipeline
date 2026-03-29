@@ -1,7 +1,13 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: tax-pipeline-run
+  name: tax-calculator-run
 spec:
   pipelineRef:
-    name: tax-pipeline
+    name: tax-calculator-pipeline
+  params:
+    - name: repo-url
+      value: https://github.com/riya-gandhi05/tax-calculator-devops
+  workspaces:
+    - name: shared-workspace
+      emptyDir: {}
